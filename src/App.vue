@@ -15,18 +15,19 @@ export default {
   data(){
     return {
       titulo: 'Alurapic',
-      fotos: [
-        {
-          url: 'http://blog.emania.com.br/content/uploads/2016/01/cachorro-curiosidades.jpg',
-          titulo: 'Cachorro'
-        },
-        {
-          url: 'http://blog.emania.com.br/content/uploads/2016/01/cachorro-curiosidades.jpg',
-          titulo: 'Cachorro'
-        }
-      ]
+      fotos: [],
     }
+  },
+
+  created(){
+    /*this.$http.get('http://localhost:3000/v1/fotos')
+      .then(res => res.json())
+      .then(fotos => this.fotos = fotos, err => console.log(err));*/
+
+    this.$http.get('http://localhost:3000/v1/fotos')
+      .then(res => this.fotos = res.body, err => console.log(err));
   }
+
 }
 </script>
 
