@@ -1,7 +1,11 @@
 <template>
   <div>
     <h1>{{ titulo }}</h1>
-    <img :src="foto.url" :alt="foto.titulo" />
+    <ul>
+      <li v-for="foto of fotos">
+        <img :src="foto.url" :alt="foto.titulo" />
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -11,10 +15,16 @@ export default {
   data(){
     return {
       titulo: 'Alurapic',
-      foto: {
-        url: 'http://blog.emania.com.br/content/uploads/2016/01/cachorro-curiosidades.jpg',
-        titulo: 'Cachorro'
-      }
+      fotos: [
+        {
+          url: 'http://blog.emania.com.br/content/uploads/2016/01/cachorro-curiosidades.jpg',
+          titulo: 'Cachorro'
+        },
+        {
+          url: 'http://blog.emania.com.br/content/uploads/2016/01/cachorro-curiosidades.jpg',
+          titulo: 'Cachorro'
+        }
+      ]
     }
   }
 }
