@@ -1,5 +1,6 @@
 <template>
-  <div class="corpo">Renderizar os componentes...
+  <div class="corpo">
+    <router-view></router-view>
   </div>
 </template>
 
