@@ -1,7 +1,7 @@
 <template>
   <div class="corpo">
     <h1 class="centralizado">{{ titulo }}</h1>
-    <input type="search" class="filtro" v-on:input="filtro = $event.target.value" placeholder="Filtrar pelo título" autofocus />
+    <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="Filtrar pelo título" autofocus />
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
         <meu-painel :titulo="foto.titulo">
@@ -31,7 +31,7 @@ export default {
 
   computed: {
     fotosComFiltro() {
-      
+
       if(this.filtro){
         let exp = new RegExp(this.filtro.trim(), 'i');
         return this.fotos.filter(foto => exp.test(foto.titulo));
